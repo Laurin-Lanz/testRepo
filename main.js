@@ -2,6 +2,12 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const { autoUpdater } = require('electron-updater');
 let mainWindow;
 
+Object.defineProperty(app, 'isPackaged', {
+  get() {
+    return true;
+  }
+});
+
 function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,
